@@ -64,7 +64,6 @@ PACKAGES="$PACKAGES luci-i18n-upnp-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-vlmcsd-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-watchcat-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-wechatpush-zh-cn"
-PACKAGES="$PACKAGES luci-i18n-filemanager-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-sqm-zh-cn"
 
 # 文件管理器
