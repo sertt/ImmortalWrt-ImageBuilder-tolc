@@ -62,22 +62,49 @@ lan_ifnames=""
 
 
 # 此处特殊处理个别开发板网口顺序问题
+#case "$board_name" in
+#    "radxa,e20c"|"friendlyarm,nanopi-r5c")
+#        # 保持你对这些特定开发板的改动（如果你也有这些板子的话）
+#        wan_ifname="eth3"
+#        lan_ifnames="eth0"
+#        echo "Using $board_name mapping: WAN=$wan_ifname LAN=$lan_ifnames" >>"$LOGFILE"
+#        ;;
+#    *)
+#        # ======= 【为你精准修正的默认分支】 =======
+#        # 直接指定 eth3 为 WAN 口
+#        wan_ifname="eth3"
+#        
+#        # 动态剔除 eth3，将其余所有物理网卡全部划归为 LAN 口
+#        lan_ifnames=""
+#        for name in $ifnames; do
+#            if [ "$name" != "eth3" ]; then
+#                lan_ifnames="$lan_ifnames $name"
+#            fi
+#        done
+#        # 格式化去除前后多余空格
+#        lan_ifnames=$(echo "$lan_ifnames" | awk '{$1=$1};1')
+#        
+#        echo "Using default mapping: WAN=$wan_ifname LAN=$lan_ifnames" >>"$LOGFILE"
+#        ;;
+#esac
+
+# 此处特殊处理个别开发板网口顺序问题
 case "$board_name" in
     "radxa,e20c"|"friendlyarm,nanopi-r5c")
         # 保持你对这些特定开发板的改动（如果你也有这些板子的话）
-        wan_ifname="eth3"
+        wan_ifname="eth5"
         lan_ifnames="eth0"
         echo "Using $board_name mapping: WAN=$wan_ifname LAN=$lan_ifnames" >>"$LOGFILE"
         ;;
     *)
         # ======= 【为你精准修正的默认分支】 =======
-        # 直接指定 eth3 为 WAN 口
-        wan_ifname="eth3"
+        # 直接指定 eth5 为 WAN 口
+        wan_ifname="eth5"
         
-        # 动态剔除 eth3，将其余所有物理网卡全部划归为 LAN 口
+        # 动态剔除 eth5，将其余所有物理网卡全部划归为 LAN 口
         lan_ifnames=""
         for name in $ifnames; do
-            if [ "$name" != "eth3" ]; then
+            if [ "$name" != "eth5" ]; then
                 lan_ifnames="$lan_ifnames $name"
             fi
         done
@@ -87,6 +114,8 @@ case "$board_name" in
         echo "Using default mapping: WAN=$wan_ifname LAN=$lan_ifnames" >>"$LOGFILE"
         ;;
 esac
+
+
 
 # 3. 配置网络
 if [ "$count" -eq 1 ]; then
