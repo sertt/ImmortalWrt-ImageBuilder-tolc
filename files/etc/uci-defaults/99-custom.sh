@@ -61,7 +61,7 @@ lan_ifnames=""
 
 
 
-# 此处特殊处理个别开发板网口顺序问题
+# 此处特殊处理个别开发板网口顺序问题#bmh的eth3为wan口
 #case "$board_name" in
 #    "radxa,e20c"|"friendlyarm,nanopi-r5c")
 #        # 保持你对这些特定开发板的改动（如果你也有这些板子的话）
@@ -88,7 +88,7 @@ lan_ifnames=""
 #        ;;
 #esac
 
-# 此处特殊处理个别开发板网口顺序问题
+# 此处特殊处理个别开发板网口顺序问题#mtf是eth5为wan口
 case "$board_name" in
     "radxa,e20c"|"friendlyarm,nanopi-r5c")
         # 保持你对这些特定开发板的改动（如果你也有这些板子的话）
